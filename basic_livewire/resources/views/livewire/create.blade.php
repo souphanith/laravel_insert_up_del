@@ -1,0 +1,22 @@
+<form>
+    <div class="form-group mb-3">
+        <label for="postName">Name</label>
+        <input type="text" class="form-control" @error('name') is-invalid     
+        @enderror id="postName" placeholder="Enter Name" wire:model='name'>
+        @error('name') <span class="text-danger">{{$message}}</span>@enderror
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="postDescription">Description</label>
+        <textarea class="form-control" @error('description') is-invalid
+        @enderror id="postDescription" placeholder="Enter Description" wire:model='description'></textarea>
+        @error('description') <span class="text-danger">{{$message}}</span> @enderror
+    </div>
+    <div class="d-grid gap-2">
+        <button wire:click.prevent="store()" class="btn btn-success btn-block">Save</button>
+
+    </div>
+</form>
+
+{{-- ຕາຕະລາງ --}}
+@include('livewire.testerpost') 
